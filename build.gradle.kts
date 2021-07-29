@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 plugins {
     kotlin("multiplatform") version "1.5.21"
+    id("org.springframework.boot") version "2.5.3"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    kotlin("plugin.spring") version "1.5.21"
     application
 }
 
@@ -41,9 +44,7 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-server-netty:1.6.0")
-                implementation("io.ktor:ktor-html-builder:1.6.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
+                implementation("org.springframework.boot:spring-boot-starter-web")
             }
         }
         val jvmTest by getting
@@ -58,11 +59,11 @@ kotlin {
 }
 
 application {
-    mainClassName = "ServerKt"
+    mainClassName = "com.run3wide.bitness.BitnessApplicationKt"
 }
 
 tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {
-    outputFileName = "js.js"
+    outputFileName = "bitness.js"
 }
 
 tasks.getByName<Jar>("jvmJar") {

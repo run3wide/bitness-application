@@ -24,7 +24,7 @@ class Welcome(props: WelcomeProps) : RComponent<WelcomeProps, WelcomeState>(prop
 
     override fun RBuilder.render() {
         div {
-            +"Hello, ${state.name}"
+            +"Welcome to Bitness, ${state.name}!"
         }
         input {
             attrs {
