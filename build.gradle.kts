@@ -54,6 +54,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation("org.springframework.boot:spring-boot-starter-web")
+                implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
             }
         }
         val jvmTest by getting
