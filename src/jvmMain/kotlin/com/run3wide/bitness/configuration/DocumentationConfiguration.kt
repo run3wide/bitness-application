@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.info.Contact
 import io.swagger.v3.oas.annotations.info.Info
 import io.swagger.v3.oas.annotations.info.License
-import io.swagger.v3.oas.annotations.servers.Server
 
 @OpenAPIDefinition(
     info = Info(
@@ -20,10 +19,5 @@ import io.swagger.v3.oas.annotations.servers.Server
             url = "https://www.apache.org/licenses/LICENSE-2.0.html",
         )
     ),
-    servers = [
-        Server(
-            url = "bitness-api.run3wide.com",
-        )
-    ],
 )
 class DocumentationConfiguration

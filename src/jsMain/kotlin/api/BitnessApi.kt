@@ -1,6 +1,6 @@
 package api
 
-import dto.pricing.PriceDto
+import dto.pricing.ExchangeRateDto
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
@@ -8,8 +8,7 @@ import io.ktor.client.request.get
 
 object BitnessApi {
 
-    private const val endpoint =
-        "http://localhost:8080" // only needed until https://github.com/ktorio/ktor/issues/1695 is resolved
+    private const val API_URL = "http://localhost:8080"
 
     private val jsonClient = HttpClient {
         install(JsonFeature) {
@@ -17,7 +16,7 @@ object BitnessApi {
         }
     }
 
-    suspend fun getPrices(): List<PriceDto> {
-        return jsonClient.get("$endpoint/rest/prices")
+    suspend fun getLatestBtcExchangeRate(): ExchangeRateDto {
+        return jsonClient.get("$API_URL/rest/exchange-rates/BTC")
     }
 }
