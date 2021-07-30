@@ -9,6 +9,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("plugin.spring") version "1.5.21"
     kotlin("plugin.serialization") version "1.5.20"
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.5.21"
     application
 }
 
@@ -55,6 +56,7 @@ kotlin {
             dependencies {
                 implementation("org.springframework.boot:spring-boot-starter-web")
                 implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
+                implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
             }
         }
         val jvmTest by getting
@@ -72,8 +74,16 @@ kotlin {
     }
 }
 
+dependencies {
+    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2020.0.3"))
+}
+
 application {
     mainClassName = "com.run3wide.bitness.BitnessApplicationKt"
+}
+
+noArg {
+    annotation("com.run3wide.bitness.configuration.DefaultConstructor")
 }
 
 tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {

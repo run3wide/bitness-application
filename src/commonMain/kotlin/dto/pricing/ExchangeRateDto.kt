@@ -3,7 +3,7 @@ package dto.pricing
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PriceDto(
+data class ExchangeRateDto(
     val amount: Double,
     val currency: String,
 )

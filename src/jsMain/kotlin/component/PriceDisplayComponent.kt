@@ -1,7 +1,7 @@
 package component
 
 import api.BitnessApi
-import dto.pricing.PriceDto
+import dto.pricing.ExchangeRateDto
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import react.*
@@ -9,20 +9,18 @@ import react.dom.div
 
 val PriceDisplayComponent = functionalComponent<RProps> {
 
-    val (prices, setPrices) = useState(emptyList<PriceDto>())
+    val (btcExchangeRate, setBtcExchangeRate) = useState<ExchangeRateDto?>(null)
 
     useEffect(dependencies = listOf()) {
         MainScope().launch {
-            val updatedPrices = BitnessApi.getPrices()
-            updatedPrices.forEach { console.log(it.amount) }
-            setPrices(updatedPrices)
+            val latestBtcExchangeRate = BitnessApi.getLatestBtcExchangeRate()
+            setBtcExchangeRate(latestBtcExchangeRate)
         }
     }
 
-    prices.forEach {
+    btcExchangeRate?.let {
         div {
             +"1 BTC = ${it.amount} ${it.currency}"
         }
     }
 }
-
