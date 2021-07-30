@@ -14,11 +14,13 @@ class PricingController {
     @Operation(summary = "Get fake prices")
     @GetMapping("/rest/prices")
     fun getBitcoinPrice(): List<PriceDto> {
-        return listOf(
+        return    listOf(
             PriceDto(
                 38_000.00,
                 "USD",
             )
         )
     }
+
+
 }
