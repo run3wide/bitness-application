@@ -18,7 +18,7 @@ class PricingController {
             PriceDto(
                 38_000.00,
                 "USD",
-            )
+            )test
         )
     }
 }
