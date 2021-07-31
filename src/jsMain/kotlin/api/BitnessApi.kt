@@ -1,6 +1,5 @@
 package api
 
-import dto.pricing.ExchangeRateDto
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
@@ -16,7 +15,7 @@ object BitnessApi {
         }
     }
 
-    suspend fun getLatestBtcExchangeRate(): ExchangeRateDto {
-        return jsonClient.get("$API_URL/rest/exchange-rates/BTC")
+    suspend fun getCurrentExchangeRateInUsd(currency: String): Double {
+        return jsonClient.get("$API_URL/rest/exchange-rates/$currency")
     }
 }
