@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 val ktorVersion = "1.6.1"
 val serializationVersion = "1.2.2"
+val xChangeVersion = "5.0.9"
 
 plugins {
     kotlin("multiplatform") version "1.5.21"
@@ -57,6 +58,8 @@ kotlin {
                 implementation("org.springframework.boot:spring-boot-starter-web")
                 implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
                 implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+                implementation("org.knowm.xchange:xchange-core:$xChangeVersion")
+                implementation("org.knowm.xchange:xchange-gemini:$xChangeVersion")
             }
         }
         val jvmTest by getting

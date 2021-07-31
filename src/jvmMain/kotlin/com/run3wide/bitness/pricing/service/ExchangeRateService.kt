@@ -11,6 +11,6 @@ class ExchangeRateService(
 
     fun getBtcExchangeRate(): ExchangeRateDto {
         return exchangeRateRepository.getBtcExchangeRate()
-            .let { ExchangeRateDto(it.amount, it.currency) }
+            .let { ExchangeRateDto(it.amount.toDouble(), it.currency) }
     }
 }
