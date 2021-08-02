@@ -2,4 +2,4 @@ springdoc:
   swagger-ui:
     path: /docs
 streaming:
-  interval-in-ms: 2000
+  interval-in-ms: 4000
