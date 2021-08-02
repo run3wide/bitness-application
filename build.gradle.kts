@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 val ktorVersion = "1.6.1"
 val serializationVersion = "1.2.2"
+val xChangeVersion = "5.0.9"
 
 plugins {
     kotlin("multiplatform") version "1.5.21"
@@ -20,6 +21,7 @@ repositories {
     jcenter()
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
+    maven { url = uri("https://kotlin.bintray.com/kotlin-js-wrappers/") }
 }
 
 kotlin {
@@ -57,13 +59,18 @@ kotlin {
                 implementation("org.springframework.boot:spring-boot-starter-web")
                 implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
                 implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+                implementation("org.springframework.boot:spring-boot-starter-webflux")
+                implementation("org.knowm.xchange:xchange-core:$xChangeVersion")
+                implementation("org.knowm.xchange:xchange-gemini:$xChangeVersion")
             }
         }
         val jvmTest by getting
         val jsMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.206-kotlin-1.5.10")
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.206-kotlin-1.5.10")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.222-kotlin-1.5.21")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:5.3.0-pre.222-kotlin-1.5.21")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:5.2.0-pre.222-kotlin-1.5.21")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.222-kotlin-1.5.21")
 
                 implementation("io.ktor:ktor-client-js:$ktorVersion")
                 implementation("io.ktor:ktor-client-json-js:$ktorVersion")

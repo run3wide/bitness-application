@@ -1,6 +1,8 @@
 package com.run3wide.bitness.pricing.domain
 
+import org.knowm.xchange.currency.Currency
+
 interface ExchangeRateRepository {
 
-    fun getBtcExchangeRate(): ExchangeRate
+    fun get(currency: Currency): ExchangeRate
 }
