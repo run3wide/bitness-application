@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 val ktorVersion = "1.6.1"
 val serializationVersion = "1.2.2"
 val xChangeVersion = "5.0.9"
+val kotlinWrappersVersion = "0.0.1-pre.223-kotlin-1.5.21"
 
 plugins {
     kotlin("multiplatform") version "1.5.21"
@@ -22,6 +23,10 @@ repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
     maven { url = uri("https://kotlin.bintray.com/kotlin-js-wrappers/") }
+}
+
+dependencies {
+    implementation(project.dependencies.enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:2020.0.3"))
 }
 
 kotlin {
@@ -67,10 +72,11 @@ kotlin {
         val jvmTest by getting
         val jsMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.222-kotlin-1.5.21")
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:5.3.0-pre.222-kotlin-1.5.21")
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:5.2.0-pre.222-kotlin-1.5.21")
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.222-kotlin-1.5.21")
+                implementation(project.dependencies.enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-styled")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
 
                 implementation("io.ktor:ktor-client-js:$ktorVersion")
                 implementation("io.ktor:ktor-client-json-js:$ktorVersion")
@@ -79,10 +85,6 @@ kotlin {
         }
         val jsTest by getting
     }
-}
-
-dependencies {
-    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2020.0.3"))
 }
 
 application {

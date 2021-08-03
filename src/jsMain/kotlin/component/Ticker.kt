@@ -7,9 +7,12 @@ import kotlinx.css.*
 import org.w3c.dom.EventSource
 import org.w3c.dom.MessageEvent
 import org.w3c.dom.events.Event
-import react.*
+import react.RProps
 import react.dom.attrs
 import react.dom.img
+import react.fc
+import react.useEffect
+import react.useState
 import styled.css
 import styled.styledDiv
 
@@ -44,6 +47,7 @@ val Ticker = fc<TickerProps> { props ->
                 flexDirection = FlexDirection.row
                 justifyContent = JustifyContent.center
                 alignItems = Align.center
+                width = 25.pct
             }
             img(src = "https://images.run3wide.com/bitness/${props.currencySymbol.lowercase()}_logo.png") {
                 attrs {

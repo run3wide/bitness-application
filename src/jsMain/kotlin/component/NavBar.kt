@@ -6,10 +6,11 @@ import react.RProps
 import react.fc
 import react.router.dom.routeLink
 import styled.css
-import styled.styledDiv
+import styled.styledNav
 
 val NavBar = fc<RProps> {
-    styledDiv {
+
+    styledNav {
         css {
             display = Display.flex
             flexDirection = FlexDirection.row
