@@ -14,7 +14,6 @@ val NavBar = fc<RProps> {
             display = Display.flex
             flexDirection = FlexDirection.row
             justifyContent = JustifyContent.spaceEvenly
-            gap = LinearDimension("20")
             backgroundColor = ThemeConfiguration.PRIMARY_COLOR
         }
         routeLink(to = "/") { +"Home" }
