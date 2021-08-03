@@ -6,15 +6,15 @@ import react.RProps
 import react.fc
 import react.router.dom.routeLink
 import styled.css
-import styled.styledDiv
+import styled.styledNav
 
 val NavBar = fc<RProps> {
-    styledDiv {
+
+    styledNav {
         css {
             display = Display.flex
             flexDirection = FlexDirection.row
             justifyContent = JustifyContent.spaceEvenly
-            gap = LinearDimension("20")
             backgroundColor = ThemeConfiguration.PRIMARY_COLOR
         }
         routeLink(to = "/") { +"Home" }

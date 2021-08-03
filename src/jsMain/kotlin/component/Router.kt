@@ -1,7 +1,6 @@
 package component
 
-import kotlinx.css.pct
-import kotlinx.css.width
+import kotlinx.css.*
 import react.RProps
 import react.child
 import react.fc
@@ -15,6 +14,8 @@ val AppRouter = fc<RProps> {
     styledDiv {
         css {
             width = 100.pct
+            alignItems = Align.center
+            justifyContent = JustifyContent.center
         }
         browserRouter {
             child(NavBar)
