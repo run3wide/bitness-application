@@ -4,5 +4,5 @@ import kotlinx.css.Color
 
 object ThemeConfiguration {
 
-    val PRIMARY_COLOR = Color("#257085")
+    val PRIMARY_COLOR = Color("#4CA2FF")
 }
