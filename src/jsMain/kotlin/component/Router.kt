@@ -13,7 +13,6 @@ import styled.styledDiv
 val AppRouter = fc<RProps> {
     styledDiv {
         css {
-            width = 100.pct
             alignItems = Align.center
             justifyContent = JustifyContent.center
         }

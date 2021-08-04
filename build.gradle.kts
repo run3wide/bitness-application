@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 val ktorVersion = "1.6.1"
@@ -77,6 +79,7 @@ kotlin {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-styled")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-table")
 
                 implementation("io.ktor:ktor-client-js:$ktorVersion")
                 implementation("io.ktor:ktor-client-json-js:$ktorVersion")
