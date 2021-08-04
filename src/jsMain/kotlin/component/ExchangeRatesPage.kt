@@ -1,5 +1,7 @@
 package component
 
+import configuration.ThemeConfiguration.PRIMARY_FONT_COLOR
+import configuration.ThemeConfiguration.PRIMARY_FONT_FAMILY
 import kotlinx.css.*
 import react.RProps
 import react.child
@@ -15,12 +17,17 @@ val ExchangeRatesPage = fc<RProps> {
     )
 
     styledDiv {
-        css {
-            display = Display.flex
-            justifyContent = JustifyContent.center
-            alignItems = Align.center
-            backgroundColor = Color.grey
+        styledDiv {
+            css {
+                paddingTop = 1.5.rem
+                paddingLeft = 3.rem
+                fontSize = 1.rem
+                color = PRIMARY_FONT_COLOR
+                fontFamily = PRIMARY_FONT_FAMILY
+            }
+            +"Exchange Rates"
         }
+
         currencies.forEach { currency ->
             child(Ticker) {
                 attrs {

@@ -54,7 +54,6 @@ private fun StyledDOMBuilder<UL>.navBarLink(location: String, displayText: Strin
             css {
                 fontFamily = "Arial"
                 fontSize = 0.8.rem
-                display = Display.block
                 color = Color.white
                 textDecoration = TextDecoration.none
             }
