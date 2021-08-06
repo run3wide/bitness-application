@@ -40,9 +40,6 @@ val NavBar = fc<RProps> {
                 }
                 navBarLink("/", "Home")
                 navBarLink("/exchange-rates", "Rates")
-                navBarLink("/exchange-rates", "Learn")
-                navBarLink("/exchange-rates", "Support")
-                navBarLink("/exchange-rates", "Features")
             }
         }
     }
