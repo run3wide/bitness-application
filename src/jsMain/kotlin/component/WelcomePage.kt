@@ -1,9 +1,7 @@
 package component
 
-import kotlinx.css.Display
-import kotlinx.css.JustifyContent
-import kotlinx.css.display
-import kotlinx.css.justifyContent
+import configuration.ThemeConfiguration
+import kotlinx.css.*
 import react.RProps
 import react.fc
 import styled.css
@@ -14,6 +12,8 @@ val WelcomePage = fc<RProps> {
         css {
             display = Display.flex
             justifyContent = JustifyContent.center
+            fontFamily = ThemeConfiguration.PRIMARY_FONT_FAMILY
+            paddingTop = 4.rem
         }
         +"Welcome to Bitness!"
     }

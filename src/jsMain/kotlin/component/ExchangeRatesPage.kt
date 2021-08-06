@@ -20,18 +20,24 @@ val ExchangeRatesPage = fc<RProps> {
         styledDiv {
             css {
                 paddingTop = 1.5.rem
-                paddingLeft = 3.rem
+                paddingLeft = 6.rem
                 fontSize = 1.rem
                 color = PRIMARY_FONT_COLOR
                 fontFamily = PRIMARY_FONT_FAMILY
             }
-            +"Exchange Rates"
+            +"Current exchange rates"
         }
 
-        currencies.forEach { currency ->
-            child(Ticker) {
-                attrs {
-                    currencySymbol = currency
+        styledDiv {
+            css {
+                paddingTop = 1.rem
+                alignItems = Align.center
+            }
+            currencies.forEach { currency ->
+                child(Ticker) {
+                    attrs {
+                        currencySymbol = currency
+                    }
                 }
             }
         }

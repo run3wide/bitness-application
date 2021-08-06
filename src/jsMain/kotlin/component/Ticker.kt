@@ -4,6 +4,7 @@ import api.BitnessApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.css.*
+import kotlinx.html.id
 import org.w3c.dom.EventSource
 import org.w3c.dom.MessageEvent
 import org.w3c.dom.events.Event
@@ -45,16 +46,32 @@ val Ticker = fc<TickerProps> { props ->
             css {
                 display = Display.flex
                 flexDirection = FlexDirection.row
-                justifyContent = JustifyContent.center
                 alignItems = Align.center
-                width = 25.pct
+                hover {
+                    backgroundColor = Color.lightGray
+                }
+                paddingBottom = 2.rem
             }
-            img(src = "https://images.run3wide.com/bitness/${props.currencySymbol.lowercase()}_logo.png") {
-                attrs {
-                    height = "50px"
+            styledDiv {
+                css {
+                    float = Float.left
+                    width = 75.pct
+                }
+                img(src = "https://images.run3wide.com/bitness/${props.currencySymbol.lowercase()}_logo.png") {
+                    attrs {
+                        height = "50px"
+                    }
                 }
             }
-            +exchangeRateInUsd
+            styledDiv {
+                attrs {
+                    id = "exchangeRate_$exchangeRateInUsd"
+                }
+                css {
+                    marginRight = 0.rem
+                }
+                +exchangeRateInUsd
+            }
         }
     }
 }
